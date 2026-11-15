@@ -8,8 +8,22 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap"
     rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       FONT LOKAL — Acorn Semi Bold (sama dengan Homepage)
+       ============================================================ */
+    @font-face {
+      font-family: 'Acorn';
+      src: url('./fonts/Accorn Semi Bold.ttf') format('truetype');
+      font-weight: 600;
+      font-style: normal;
+      font-display: swap;
+    }
+  </style>
+
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -17,44 +31,63 @@
       theme: {
         extend: {
           colors: {
-            cream: '#ECE6DC',
-            lime: '#CDEBB4',
-            forest: '#005C4B',
-            ink: '#3A3F3C',
-            muted: '#4F5B55',
-            lilac: '#D691F0',
-            mint: '#9ADFD6',
-            peach: '#E8B699',
-            sky: '#B7DDF7',
-            hsblue: '#005EB5',
-            hsbar: '#4A9BDF',
-            hslight: '#8CCFFF',
-            purple: '#7E55B8',
-            lavender: '#E3CFF7',
-            line: '#ECEEF2',
-            night: '#1E1E1E',
-            night2: '#2B2B2B',
-            teal: '#009C7E',
-            darkbg: '#0C261A',
-            darktext: '#D1E8DF',
-            darkmuted: '#9AB5AA',
-            darkborder: '#1A3B2B',
-            darkcard: '#112E21',
-            'theme-knob-light': '#065A4B',
-            'theme-tick-active-light': '#065A4B',
-            'theme-tick-faded-light': '#A3B8B0',
-            'theme-icon-light': '#F3EBDD',
-            'theme-knob-dark': '#8EDFC4',
-            'theme-tick-active-dark': '#8EDFC4',
-            'theme-tick-faded-dark': 'rgba(142, 223, 196, 0.4)',
-            'theme-icon-dark': '#0C261A',
+            /* ===== PALETTE (dari Homepage) ===== */
+            graphite: {
+              DEFAULT: '#353535', 100: '#0b0b0b', 200: '#151515', 300: '#202020', 400: '#2b2b2b',
+              500: '#353535', 600: '#5e5e5e', 700: '#868686', 800: '#aeaeae', 900: '#d7d7d7',
+            },
+            stormy_teal: {
+              DEFAULT: '#3c6e71', 100: '#0c1617', 200: '#182c2d', 300: '#244344', 400: '#30595b',
+              500: '#3c6e71', 600: '#539a9e', 700: '#7bb6b9', 800: '#a7ced1', 900: '#d3e7e8',
+            },
+            alabaster_grey: {
+              DEFAULT: '#d9d9d9', 100: '#2b2b2b', 200: '#575757', 300: '#828282', 400: '#adadad',
+              500: '#d9d9d9', 600: '#e0e0e0', 700: '#e8e8e8', 800: '#f0f0f0', 900: '#f7f7f7',
+            },
+            yale_blue: {
+              DEFAULT: '#284b63', 100: '#080f14', 200: '#101e27', 300: '#182d3b', 400: '#203c4e',
+              500: '#284b63', 600: '#3e7397', 700: '#6099be', 800: '#95bbd4', 900: '#cadde9',
+            },
+
+            /* ===== ALIAS (dipakai class Tailwind di About) ===== */
+            cream: '#f7f7f7',
+            lime: '#a7ced1',
+            forest: '#284b63',
+            ink: '#353535',
+            muted: '#5e5e5e',
+            lilac: '#7bb6b9',
+            mint: '#a7ced1',
+            peach: '#95bbd4',
+            sky: '#cadde9',
+            purple: '#3c6e71',
+            lavender: '#d3e7e8',
+            line: '#e8e8e8',
+            night: '#151515',
+            night2: '#202020',
+            teal: '#3c6e71',
+            darkbg: '#0c1617',
+            darktext: '#d3e7e8',
+            darkmuted: '#7bb6b9',
+            darkborder: '#182c2d',
+            darkcard: '#101e27',
+
+            'theme-knob-light': '#284b63',
+            'theme-tick-active-light': '#284b63',
+            'theme-tick-faded-light': '#adadad',
+            'theme-icon-light': '#f7f7f7',
+            'theme-knob-dark': '#7bb6b9',
+            'theme-tick-active-dark': '#7bb6b9',
+            'theme-tick-faded-dark': 'rgba(123, 182, 185, 0.4)',
+            'theme-icon-dark': '#0c1617',
           },
           fontFamily: {
-            display: ['Acorn', '"Bricolage Grotesque"', 'sans-serif'],
+            display: ['"Acorn"', '"Bricolage Grotesque"', 'sans-serif'],
+            serif: ['"Instrument Serif"', 'Georgia', 'serif'],
             sans: ['"Instrument Sans"', 'sans-serif'],
+            acorn: ['"Acorn"', '"Bricolage Grotesque"', '"Instrument Serif"', 'sans-serif'],
           },
           boxShadow: {
-            card: '0 30px 60px -20px rgba(80,60,40,.25)',
+            card: '0 30px 60px -20px rgba(40,75,99,.25)',
             darkcard: '0 30px 60px -20px rgba(0,0,0,.5)',
           },
         },
@@ -62,26 +95,47 @@
     };
   </script>
   <style>
+    /* ===== Base / Smooth Scroll Base ===== */
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+    }
+
+    html.smooth-scroll-active {
+      scroll-behavior: auto;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto !important;
+      }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
     body {
-      background-color: #ECE6DC;
-      color: #3A3F3C;
+      background-color: #f7f7f7;
+      color: #0b0b0b;
       transition: background-color 0.5s ease, color 0.5s ease;
+      overflow-x: hidden;
+      overscroll-behavior-y: none;
     }
 
     .dark body {
-      background-color: #0C261A;
-      color: #D1E8DF;
+      background-color: #0b0b0b;
+      color: #f7f7f7;
     }
 
-    .hero-bg {
-      background: radial-gradient(60% 50% at 85% 0%, #CDEBB4 0%, rgba(205, 235, 180, 0) 70%), linear-gradient(180deg, #E7E7CF 0%, #ECE6DC 100%);
-      transition: background 0.5s ease;
+    main section {
+      contain: layout style;
     }
 
-    .dark .hero-bg {
-      background: radial-gradient(60% 50% at 85% 0%, #174D34 0%, rgba(23, 77, 52, 0) 70%), linear-gradient(180deg, #0C261A 0%, #0C261A 100%);
-    }
-
+    /* ===== Floating Nav ===== */
     .floating-nav {
       position: fixed;
       top: 16px;
@@ -90,115 +144,157 @@
       z-index: 50;
       display: flex;
       align-items: center;
-      gap: 4px;
-      padding: 6px 8px;
+      gap: 2px;
+      padding: 4px 6px;
       border-radius: 9999px;
-      font-size: 15px;
+      font-size: 13px;
       font-weight: 500;
-      color: #4F5B55;
-      background: rgba(255, 255, 255, 0.25);
+      color: #0b0b0b;
+      background: rgba(255, 255, 255, 0.65);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+      border: 1px solid #e8e8e8;
+      transition: background 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                  padding 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                  border 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                  box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                  top 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 20px rgba(40, 75, 99, 0.06);
       white-space: nowrap;
     }
 
+    @media (min-width: 640px) {
+      .floating-nav {
+        gap: 4px;
+        padding: 6px 8px;
+        font-size: 15px;
+      }
+    }
+
     .dark .floating-nav {
-      color: #D1E8DF;
-      background: rgba(12, 38, 26, 0.4);
-      border: 1px solid rgba(255, 255, 255, 0.05);
+      color: #f7f7f7;
+      background: rgba(11, 11, 11, 0.65);
+      border: 1px solid rgba(232, 232, 232, 0.15);
     }
 
     .floating-nav .nav-item {
       display: flex;
       align-items: center;
-      gap: 8px;
-      padding: 7px 18px;
+      gap: 4px;
+      padding: 6px 12px;
       border-radius: 9999px;
-      transition: all 0.25s ease;
+      transition: background 0.25s ease, color 0.25s ease;
       text-decoration: none;
       color: inherit;
       cursor: pointer;
     }
 
+    @media (min-width: 640px) {
+      .floating-nav .nav-item {
+        gap: 8px;
+        padding: 7px 18px;
+      }
+    }
+
     .floating-nav .nav-item:hover {
-      background: rgba(255, 255, 255, 0.6);
-      color: #005C4B;
+      background: rgba(255, 255, 255, 0.9);
+      color: #3c6e71;
     }
 
     .dark .floating-nav .nav-item:hover {
       background: rgba(255, 255, 255, 0.1);
-      color: #CDEBB4;
+      color: #7bb6b9;
     }
 
     .floating-nav .nav-item.active {
-      background: rgba(255, 255, 255, 0.65);
-      color: #3A3F3C;
+      background: #ffffff;
+      color: #0b0b0b;
+      box-shadow: 0 2px 8px rgba(40, 75, 99, 0.06);
     }
 
     .dark .floating-nav .nav-item.active {
       background: rgba(255, 255, 255, 0.15);
-      color: #CDEBB4;
+      color: #f7f7f7;
     }
 
     .floating-nav .nav-item .badge {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 22px;
-      height: 22px;
+      width: 18px;
+      height: 18px;
       border-radius: 4px;
-      border: 1px solid rgba(0, 0, 0, 0.1);
-      font-size: 13px;
+      border: 1px solid #e8e8e8;
+      font-size: 11px;
       font-weight: 600;
-      color: #3A3F3C;
-      background: rgba(255, 255, 255, 0.3);
-      margin-left: 2px;
+      color: #0b0b0b;
+      background: rgba(255, 255, 255, 0.5);
+      margin-left: 1px;
       transition: all 0.3s ease;
     }
 
+    @media (min-width: 640px) {
+      .floating-nav .nav-item .badge {
+        width: 22px;
+        height: 22px;
+        font-size: 13px;
+        margin-left: 2px;
+      }
+    }
+
     .dark .floating-nav .nav-item .badge {
-      border-color: rgba(255, 255, 255, 0.1);
-      color: #D1E8DF;
-      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(232, 232, 232, 0.2);
+      color: #f7f7f7;
+      background: rgba(255, 255, 255, 0.08);
     }
 
     .floating-nav.scrolled {
-      background: rgba(255, 255, 255, 0.92);
+      background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(0, 0, 0, 0.04);
-      box-shadow: 0 8px 32px rgba(80, 60, 40, 0.12);
-      padding: 8px 10px;
+      border: 1px solid #e8e8e8;
+      box-shadow: 0 8px 32px rgba(40, 75, 99, 0.08);
+      padding: 6px 8px;
       top: 12px;
     }
 
+    @media (min-width: 640px) {
+      .floating-nav.scrolled {
+        padding: 8px 10px;
+      }
+    }
+
     .dark .floating-nav.scrolled {
-      background: rgba(12, 38, 26, 0.92);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      background: rgba(11, 11, 11, 0.95);
+      border: 1px solid rgba(232, 232, 232, 0.15);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
     }
 
     .floating-nav.scrolled .nav-item {
-      padding: 9px 24px;
+      padding: 7px 14px;
+    }
+
+    @media (min-width: 640px) {
+      .floating-nav.scrolled .nav-item {
+        padding: 9px 24px;
+      }
     }
 
     .floating-nav.scrolled .nav-item.active {
-      background: #F5F3F0;
-      color: #3A3F3C;
+      background: #f7f7f7;
+      color: #353535;
     }
 
     .dark .floating-nav.scrolled .nav-item.active {
       background: rgba(255, 255, 255, 0.1);
-      color: #CDEBB4;
+      color: #a7ced1;
     }
 
     .nav-spacer {
       height: 72px;
     }
 
+    /* ===== Theme Ruler ===== */
     .tick {
       width: 2px;
       border-radius: 2px;
@@ -210,7 +306,7 @@
     }
 
     .theme-knob {
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 4px 20px rgba(40, 75, 99, 0.15);
       position: absolute;
       top: 0;
       left: 0;
@@ -232,17 +328,43 @@
     body.dragging .theme-knob {
       transition: background-color 0.3s ease !important;
     }
+
+    a, button, .nav-item, .theme-knob, .tick {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* ===== Reveal on scroll animation ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: opacity, transform;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
   </style>
 </head>
 
 <body class="font-sans antialiased">
 
   <nav class="floating-nav" id="floatingNav">
-    <a href="Homepage.html" class="nav-item">Work <span class="badge">/</span>
-      <a href="#" class="nav-item active">About</a>
-      <a href="#" class="nav-item">Play</a>
-      <a href="#" class="nav-item">Notes</a>
-      <a href="#" class="nav-item">Contact</a>
+    <a href="Homepage.html" class="nav-item">Work <span class="badge hidden sm:inline-flex">/</span></a>
+    <a href="#" class="nav-item active">About</a>
+    <a href="#" class="nav-item">Play</a>
+    <a href="#" class="nav-item">Notes</a>
+    <a href="#" class="nav-item">Contact</a>
   </nav>
 
   <div class="nav-spacer"></div>
@@ -250,18 +372,18 @@
   <main class="mx-auto max-w-7xl px-5 sm:px-10 pt-12">
 
     <!-- Header Section -->
-    <section class="text-center mb-16">
+    <section class="text-center mb-16 reveal">
       <h1
-        class="font-display font-extrabold text-forest dark:text-lime tracking-[-0.04em] leading-none text-[56px] sm:text-[80px] lg:text-[96px] transition-colors duration-500">
+        class="font-acorn font-extrabold text-forest dark:text-lime tracking-[-0.04em] leading-none text-[56px] sm:text-[80px] lg:text-[96px] transition-colors duration-500">
         I'm Angger.</h1>
     </section>
 
     <!-- Profile & Intro Section -->
-    <section class="grid md:grid-cols-[1fr_1.5fr] gap-12 lg:gap-20 items-start mb-24">
+    <section class="grid md:grid-cols-[1fr_1.5fr] gap-12 lg:gap-20 items-start mb-24 reveal">
       <div class="w-full max-w-sm mx-auto md:mx-0">
-        <div class="relative w-full aspect-[4/5] rounded-t-full overflow-hidden bg-[#C7A98F] dark:bg-[#4A3B30]">
+        <div class="relative w-full aspect-[4/5] rounded-t-full overflow-hidden bg-[#a7ced1] dark:bg-[#1a3437]">
           <div class="absolute inset-0 flex items-end justify-center">
-            <svg class="w-2/3 h-auto text-[#005C4B]/20 dark:text-[#CDEBB4]/20" viewBox="0 0 24 24" fill="currentColor">
+            <svg class="w-2/3 h-auto text-[#284b63]/20 dark:text-[#a7ced1]/20" viewBox="0 0 24 24" fill="currentColor">
               <path
                 d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
             </svg>
@@ -271,96 +393,97 @@
 
       <div class="pt-4">
         <h2
-          class="font-display font-bold text-forest dark:text-lime text-[36px] sm:text-[48px] leading-[1.1] tracking-tight mb-8 transition-colors duration-500">
-          I'm a Product Designer working remotely from 11°C Dublin, Ireland.
+          class="font-acorn font-bold text-forest dark:text-lime text-[36px] sm:text-[48px] leading-[1.1] tracking-tight mb-8 transition-colors duration-500">
+          I'm a Graphic Designer specializing in product catalogs and visual communication, based in Indonesia.
         </h2>
         <div
           class="text-lg font-medium text-muted dark:text-darkmuted space-y-6 leading-relaxed transition-colors duration-500">
-          <p>Over the past 16 years, I've worked in various areas of digital design, including front-end development,
-            email, marketing, and app UI/UX. I'm proud to have worn many hats.</p>
-          <p>These days, I focus on leading design at GiveDirectly, a nonprofit that lets donors send money directly to
-            the world's poorest households.</p>
+          <p>Since 2021, I've been exploring different areas of design, from branding and illustration to marketing visuals and product-focused design.
+            My experience has allowed me to work across various industries and creative projects, developing visuals that balance aesthetics, functionality, and clear communication.</p>
+          <p>These days, I focus on product catalog design and visual communication, particularly in the automotive industry. My work includes designing product catalogs, technical specifications, modification illustrations, product manuals, marketing materials, and marketplace visuals.
+            I enjoy turning complex product information into clear, engaging, and well-structured visual experiences.</p>
         </div>
       </div>
     </section>
 
-    <!-- Career Timeline Section (rata kiri, ujung kanan tidak disamakan) -->
-    <section class="mb-32 flex flex-col items-start w-full max-w-4xl space-y-1.5">
+    <!-- Career Timeline Section -->
+    <section class="mb-32 flex flex-col items-start w-full max-w-4xl space-y-1.5 reveal">
 
-      <!-- GiveDirectly -->
       <div
-        class="bg-forest dark:bg-[#007A62] rounded-full py-3.5 pl-7 pr-6 flex justify-between items-center text-white w-full max-w-[360px] transition-colors duration-500">
+        class="bg-forest dark:bg-[#3e7397] rounded-full py-3.5 pl-7 pr-6 flex justify-between items-center text-white w-full max-w-[360px] transition-colors duration-500">
         <div>
           <p class="font-bold text-[15px] tracking-wide">GiveDirectly</p>
           <p class="text-[13px] opacity-90 font-medium">Senior Product Designer</p>
         </div>
-        <span class="font-display font-bold text-[17px]">22~</span>
+        <span class="font-acorn font-bold text-[17px]">22~</span>
       </div>
 
-      <!-- Help Scout -->
       <div
-        class="bg-forest dark:bg-[#007A62] rounded-full py-3.5 pl-7 pr-6 flex justify-between items-center text-white w-full max-w-[480px] transition-colors duration-500">
+        class="bg-forest dark:bg-[#3e7397] rounded-full py-3.5 pl-7 pr-6 flex justify-between items-center text-white w-full max-w-[480px] transition-colors duration-500">
         <div>
           <p class="font-bold text-[15px] tracking-wide">Help Scout</p>
           <p class="text-[13px] opacity-90 font-medium">Senior Product Designer</p>
         </div>
-        <span class="font-display font-bold text-[17px]">15–23</span>
+        <span class="font-acorn font-bold text-[17px]">15–23</span>
       </div>
 
-      <!-- Freelance -->
       <div
-        class="bg-forest dark:bg-[#007A62] rounded-full py-3.5 pl-7 pr-6 flex justify-between items-center text-white w-full max-w-[760px] transition-colors duration-500">
+        class="bg-forest dark:bg-[#3e7397] rounded-full py-3.5 pl-7 pr-6 flex justify-between items-center text-white w-full max-w-[760px] transition-colors duration-500">
         <div>
           <p class="font-bold text-[15px] tracking-wide">Freelance</p>
           <p class="text-[13px] opacity-90 font-medium">Design Consultant</p>
         </div>
-        <span class="font-display font-bold text-[17px]">12~</span>
+        <span class="font-acorn font-bold text-[17px]">12~</span>
       </div>
 
-      <!-- Doffusion -->
       <div
-        class="bg-forest dark:bg-[#007A62] rounded-full py-3.5 pl-7 pr-6 flex justify-between items-center text-white w-full max-w-[320px] transition-colors duration-500">
+        class="bg-forest dark:bg-[#3e7397] rounded-full py-3.5 pl-7 pr-6 flex justify-between items-center text-white w-full max-w-[320px] transition-colors duration-500">
         <div>
           <p class="font-bold text-[15px] tracking-wide">Doffusion</p>
           <p class="text-[13px] opacity-90 font-medium">Design / Dev</p>
         </div>
-        <span class="font-display font-bold text-[17px]">10–14</span>
+        <span class="font-acorn font-bold text-[17px]">10–14</span>
       </div>
 
-      <!-- Cubic -->
       <div
-        class="bg-forest dark:bg-[#007A62] rounded-full py-3.5 pl-7 pr-6 flex justify-between items-center text-white w-full max-w-[280px] transition-colors duration-500">
+        class="bg-forest dark:bg-[#3e7397] rounded-full py-3.5 pl-7 pr-6 flex justify-between items-center text-white w-full max-w-[280px] transition-colors duration-500">
         <div>
           <p class="font-bold text-[15px] tracking-wide">Cubic</p>
           <p class="text-[13px] opacity-90 font-medium">Design / Dev</p>
         </div>
-        <span class="font-display font-bold text-[17px]">7–10</span>
+        <span class="font-acorn font-bold text-[17px]">7–10</span>
       </div>
 
     </section>
 
-    <!-- Collaboration Section (rata kiri, digeser 20% ke kiri, heading & paragraf lebar penuh) -->
-    <section class="mb-32 w-full max-w-4xl text-left md:pl-[calc(13%+2rem)] lg:pl-[calc(13%+3rem)]">
+    <!-- Collaboration Section -->
+    <section class="mb-32 w-full max-w-4xl text-left md:pl-[calc(13%+2rem)] lg:pl-[calc(13%+3rem)] reveal">
       <h2
-        class="font-display font-bold text-forest dark:text-lime text-[36px] sm:text-[48px] leading-[1.2] tracking-tight w-full mb-8 transition-colors duration-500">
-        Let's collaborate if you're committed to sustainability, education, equality, or carbon neutrality.
+        class="font-acorn font-bold text-forest dark:text-lime text-[36px] sm:text-[48px] leading-[1.2] tracking-tight w-full mb-8 transition-colors duration-500">
+        Let's collaborate if you believe in thoughtful design and meaningful ideas.
       </h2>
       <p
         class="text-lg font-medium text-muted dark:text-darkmuted w-full leading-relaxed transition-colors duration-500">
-        I believe we should leave this Earth as good as or better than we found it for future generations; my goal is to
-        contribute to those ideals in whatever way I can. If you feel the same, I'd love to talk.
+        I believe good design goes beyond aesthetics. It should serve a purpose, communicate ideas clearly, 
+        and create value for the people who experience it. 
+      </p>
+      <p
+        class="text-lg font-medium text-muted dark:text-darkmuted w-full leading-relaxed transition-colors duration-500">
+        I'm always open to collaborating with people 
+        and teams who value creativity, thoughtful problem-solving, and well-crafted visual experiences. 
+        If that sounds like your approach, I'd love to connect.
       </p>
     </section>
 
     <!-- Principles Section -->
-    <section class="mb-32">
+    <section class="mb-32 reveal">
       <div
-        class="bg-[#F2F0E9] dark:bg-darkcard rounded-[48px] py-20 px-8 sm:px-20 shadow-sm dark:shadow-darkcard transition-colors duration-500">
+        class="bg-alabaster_grey-900 dark:bg-darkcard rounded-[48px] py-20 px-8 sm:px-20 shadow-sm dark:shadow-darkcard transition-colors duration-500">
         <div class="grid sm:grid-cols-2 gap-x-16 gap-y-20 max-w-4xl mx-auto">
 
           <div>
             <p
-              class="text-[32px] font-display font-bold text-[#7DAF9E] dark:text-teal mb-4 transition-colors duration-500">
+              class="text-[32px] font-acorn font-bold text-stormy_teal-700 dark:text-stormy_teal-700 mb-4 transition-colors duration-500">
               01</p>
             <h3 class="text-2xl font-bold text-forest dark:text-lime mb-4 transition-colors duration-500">Make it</h3>
             <p class="text-lg font-medium text-muted dark:text-darkmuted leading-[1.6] transition-colors duration-500">
@@ -372,7 +495,7 @@
 
           <div>
             <p
-              class="text-[32px] font-display font-bold text-[#7DAF9E] dark:text-teal mb-4 transition-colors duration-500">
+              class="text-[32px] font-acorn font-bold text-stormy_teal-700 dark:text-stormy_teal-700 mb-4 transition-colors duration-500">
               02</p>
             <h3 class="text-2xl font-bold text-forest dark:text-lime mb-4 transition-colors duration-500">Collaborate
             </h3>
@@ -385,7 +508,7 @@
 
           <div>
             <p
-              class="text-[32px] font-display font-bold text-[#7DAF9E] dark:text-teal mb-4 transition-colors duration-500">
+              class="text-[32px] font-acorn font-bold text-stormy_teal-700 dark:text-stormy_teal-700 mb-4 transition-colors duration-500">
               03</p>
             <h3 class="text-2xl font-bold text-forest dark:text-lime mb-4 transition-colors duration-500">Accessible FTW
             </h3>
@@ -397,7 +520,7 @@
 
           <div>
             <p
-              class="text-[32px] font-display font-bold text-[#7DAF9E] dark:text-teal mb-4 transition-colors duration-500">
+              class="text-[32px] font-acorn font-bold text-stormy_teal-700 dark:text-stormy_teal-700 mb-4 transition-colors duration-500">
               04</p>
             <h3 class="text-2xl font-bold text-forest dark:text-lime mb-4 transition-colors duration-500">Keep
               experimenting</h3>
@@ -413,7 +536,7 @@
 
     <!-- Text Block Section -->
     <section
-      class="max-w-2xl mx-auto mb-32 text-lg font-medium text-muted dark:text-darkmuted space-y-6 leading-relaxed transition-colors duration-500 text-center">
+      class="max-w-2xl mx-auto mb-32 text-lg font-medium text-muted dark:text-darkmuted space-y-6 leading-relaxed transition-colors duration-500 text-center reveal">
       <p>Before I stepped into the world of product design, I was a web developer. One of my earliest jobs involved
         writing HTML emails, in a time before email linters. Lots of wishing, hoping, and finger crossing that your
         email arrived in a recipient's inbox in one piece.</p>
@@ -425,12 +548,12 @@
     </section>
 
     <!-- Image Gallery Section -->
-    <section class="grid sm:grid-cols-2 gap-6 mb-32">
+    <section class="grid sm:grid-cols-2 gap-6 mb-32 reveal">
       <div
-        class="w-full aspect-[4/3] bg-[#B7DDF7] dark:bg-[#1C3645] rounded-2xl overflow-hidden relative transition-colors duration-500">
-        <div class="absolute inset-0 bg-gradient-to-t from-[#005C4B]/20 to-transparent"></div>
-        <div class="absolute bottom-0 w-full h-1/3 bg-[#7CB5D8]/40 flex items-end justify-center pb-4">
-          <svg class="w-1/2 h-auto text-[#005C4B]/30" viewBox="0 0 100 50" preserveAspectRatio="none">
+        class="w-full aspect-[4/3] bg-[#cadde9] dark:bg-[#182d3b] rounded-2xl overflow-hidden relative transition-colors duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-[#284b63]/20 to-transparent"></div>
+        <div class="absolute bottom-0 w-full h-1/3 bg-[#6099be]/40 flex items-end justify-center pb-4">
+          <svg class="w-1/2 h-auto text-[#284b63]/30" viewBox="0 0 100 50" preserveAspectRatio="none">
             <path d="M0,50 L10,20 L20,25 L30,10 L40,30 L50,15 L60,35 L70,20 L80,40 L90,10 L100,50 Z"
               fill="currentColor" />
           </svg>
@@ -438,10 +561,10 @@
       </div>
 
       <div
-        class="w-full aspect-[4/3] bg-[#E8B699] dark:bg-[#4A2C1F] rounded-2xl overflow-hidden relative transition-colors duration-500">
-        <div class="absolute inset-0 bg-gradient-to-t from-[#3A3F3C]/20 to-transparent"></div>
-        <div class="absolute top-1/4 right-1/4 w-1/3 h-1/2 bg-[#D691F0]/30 rounded-md"></div>
-        <div class="absolute top-1/3 left-1/4 w-1/4 h-1/3 bg-[#005C4B]/30 rounded-md"></div>
+        class="w-full aspect-[4/3] bg-[#a7ced1] dark:bg-[#1a3437] rounded-2xl overflow-hidden relative transition-colors duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-[#353535]/20 to-transparent"></div>
+        <div class="absolute top-1/4 right-1/4 w-1/3 h-1/2 bg-[#7bb6b9]/30 rounded-md"></div>
+        <div class="absolute top-1/3 left-1/4 w-1/4 h-1/3 bg-[#284b63]/30 rounded-md"></div>
       </div>
     </section>
 
@@ -453,7 +576,7 @@
       <p>© 2026 Angger Bagos Fiermansyah • <a href="#" class="hover:text-forest dark:hover:text-lime">Colophon</a></p>
       <div class="flex gap-14">
         <div>
-          <p class="font-display font-semibold text-forest dark:text-lime">Elsewhere</p>
+          <p class="font-acorn font-semibold text-forest dark:text-lime">Elsewhere</p>
           <ul class="mt-4 space-y-3">
             <li><a href="#" class="hover:text-forest dark:hover:text-lime">Figma</a></li>
             <li><a href="#" class="hover:text-forest dark:hover:text-lime">Github</a></li>
@@ -463,7 +586,7 @@
           </ul>
         </div>
         <div>
-          <p class="font-display font-semibold text-forest dark:text-lime">Contact</p>
+          <p class="font-acorn font-semibold text-forest dark:text-lime">Contact</p>
           <ul class="mt-4">
             <li><a href="#" class="hover:text-forest dark:hover:text-lime">Message</a></li>
           </ul>
@@ -502,16 +625,156 @@
   </footer>
 
   <script>
+    /* ============================================================
+       1) CUSTOM SMOOTH SCROLL (WHEEL / TRACKPAD / KEYBOARD)
+       ============================================================ */
     (function () {
-      const nav = document.getElementById('floatingNav');
-      function handleScroll() {
-        if (window.scrollY > 20) nav.classList.add('scrolled');
-        else nav.classList.remove('scrolled');
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReduced) return;
+
+      const isTouch = ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
+      if (isTouch && window.innerWidth < 1024) return;
+
+      const html = document.documentElement;
+      html.classList.add('smooth-scroll-active');
+
+      const SMOOTHNESS = 0.10;
+      const MULTIPLIER = 1.0;
+
+      let targetScroll = window.scrollY;
+      let currentScroll = window.scrollY;
+      let rafId = null;
+      let isAnimating = false;
+
+      function maxScroll() {
+        return Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
       }
-      window.addEventListener('scroll', handleScroll, { passive: true });
-      handleScroll();
+
+      function normalizeWheel(e) {
+        let delta = e.deltaY;
+        if (e.deltaMode === 1) delta *= 16;
+        else if (e.deltaMode === 2) delta *= window.innerHeight;
+        return delta;
+      }
+
+      function animate() {
+        const diff = targetScroll - currentScroll;
+        if (Math.abs(diff) < 0.5) {
+          currentScroll = targetScroll;
+          window.scrollTo(0, currentScroll);
+          isAnimating = false;
+          rafId = null;
+          return;
+        }
+        currentScroll += diff * SMOOTHNESS;
+        window.scrollTo(0, currentScroll);
+        rafId = requestAnimationFrame(animate);
+      }
+
+      function startAnimation() {
+        if (!isAnimating) {
+          isAnimating = true;
+          rafId = requestAnimationFrame(animate);
+        }
+      }
+
+      function onWheel(e) {
+        e.preventDefault();
+        const delta = normalizeWheel(e) * MULTIPLIER;
+        const max = maxScroll();
+        targetScroll = Math.max(0, Math.min(targetScroll + delta, max));
+        startAnimation();
+      }
+
+      window.addEventListener('wheel', onWheel, { passive: false });
+
+      window.addEventListener('scroll', function () {
+        if (!isAnimating) {
+          targetScroll = window.scrollY;
+          currentScroll = window.scrollY;
+        }
+      }, { passive: true });
+
+      window.addEventListener('resize', function () {
+        targetScroll = Math.min(targetScroll, maxScroll());
+        currentScroll = Math.min(currentScroll, maxScroll());
+      });
+
+      window.addEventListener('keydown', function (e) {
+        const tag = (e.target.tagName || '').toLowerCase();
+        if (tag === 'input' || tag === 'textarea' || e.target.isContentEditable) return;
+        if (e.target === document.getElementById('knob')) return;
+
+        const max = maxScroll();
+        let delta = 0;
+
+        switch (e.key) {
+          case 'PageDown': delta = window.innerHeight * 0.9; break;
+          case 'PageUp': delta = -window.innerHeight * 0.9; break;
+          case ' ': delta = e.shiftKey ? -window.innerHeight * 0.9 : window.innerHeight * 0.9; break;
+          case 'ArrowDown': delta = 60; break;
+          case 'ArrowUp': delta = -60; break;
+          case 'Home': targetScroll = 0; e.preventDefault(); startAnimation(); return;
+          case 'End': targetScroll = max; e.preventDefault(); startAnimation(); return;
+          default: return;
+        }
+
+        e.preventDefault();
+        targetScroll = Math.max(0, Math.min(targetScroll + delta, max));
+        startAnimation();
+      });
     })();
 
+    /* ============================================================
+       2) NAV SCROLL STATE
+       ============================================================ */
+    (function () {
+      const nav = document.getElementById('floatingNav');
+      let ticking = false;
+
+      function updateScrollUI() {
+        const scrollY = window.scrollY || window.pageYOffset;
+        if (scrollY > 20) nav.classList.add('scrolled');
+        else nav.classList.remove('scrolled');
+        ticking = false;
+      }
+
+      window.addEventListener('scroll', function () {
+        if (!ticking) {
+          requestAnimationFrame(updateScrollUI);
+          ticking = true;
+        }
+      }, { passive: true });
+
+      updateScrollUI();
+    })();
+
+    /* ============================================================
+       3) REVEAL ON SCROLL
+       ============================================================ */
+    (function () {
+      const reveals = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) {
+        reveals.forEach(el => el.classList.add('is-visible'));
+        return;
+      }
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, {
+        rootMargin: '0px 0px -8% 0px',
+        threshold: 0.08
+      });
+      reveals.forEach(el => io.observe(el));
+    })();
+
+    /* ============================================================
+       4) THEME RULER / KNOB
+       ============================================================ */
     (function () {
       const container = document.getElementById('ruler-container');
       const track = document.getElementById('ticks-track');
@@ -523,7 +786,7 @@
       let step = 0;
       let minX = 0;
       let maxX = 0;
-      let padding = 40;
+      const padding = 40;
 
       let currentX = 0;
       let isDragging = false;

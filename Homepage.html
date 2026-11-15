@@ -7,6 +7,20 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+
+<style>
+  /* ============================================================
+     FONT LOKAL — Accorn Semi Bold
+     ============================================================ */
+  @font-face {
+    font-family: 'Acorn';
+    src: url('./fonts/Accorn Semi Bold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+</style>
+
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
 tailwind.config = {
@@ -14,43 +28,54 @@ tailwind.config = {
   theme: {
     extend: {
       colors: {
-        cream: '#ECE6DC',
-        lime: '#CDEBB4',
-        forest: '#005C4B',
-        ink: '#3A3F3C',
-        muted: '#4F5B55',
-        lilac: '#D691F0',
-        mint: '#9ADFD6',
-        peach: '#E8B699',
-        sky: '#B7DDF7',
-        hsblue: '#005EB5',
-        hsbar: '#4A9BDF',
-        hslight: '#8CCFFF',
-        purple: '#7E55B8',
-        lavender: '#E3CFF7',
-        line: '#ECEEF2',
-        night: '#1E1E1E',
-        night2: '#2B2B2B',
-        teal: '#009C7E',
-        darkbg: '#0C261A',
-        darktext: '#D1E8DF',
-        darkmuted: '#9AB5AA',
-        'theme-knob-light': '#065A4B',
-        'theme-tick-active-light': '#065A4B',
-        'theme-tick-faded-light': '#A3B8B0',
-        'theme-icon-light': '#F3EBDD',
-        'theme-knob-dark': '#8EDFC4',
-        'theme-tick-active-dark': '#8EDFC4',
-        'theme-tick-faded-dark': 'rgba(142, 223, 196, 0.4)',
-        'theme-icon-dark': '#0C261A',
+        /* ===== PALETTE ===== */
+        graphite: {
+          DEFAULT: '#353535', 100: '#0b0b0b', 200: '#151515', 300: '#202020', 400: '#2b2b2b',
+          500: '#353535', 600: '#5e5e5e', 700: '#868686', 800: '#aeaeae', 900: '#d7d7d7',
+        },
+        stormy_teal: {
+          DEFAULT: '#3c6e71', 100: '#0c1617', 200: '#182c2d', 300: '#244344', 400: '#30595b',
+          500: '#3c6e71', 600: '#539a9e', 700: '#7bb6b9', 800: '#a7ced1', 900: '#d3e7e8',
+        },
+        white: {
+          DEFAULT: '#ffffff', 100: '#333333', 200: '#666666', 300: '#999999', 400: '#cccccc',
+          500: '#ffffff', 600: '#ffffff', 700: '#ffffff', 800: '#ffffff', 900: '#ffffff',
+        },
+        alabaster_grey: {
+          DEFAULT: '#d9d9d9', 100: '#2b2b2b', 200: '#575757', 300: '#828282', 400: '#adadad',
+          500: '#d9d9d9', 600: '#e0e0e0', 700: '#e8e8e8', 800: '#f0f0f0', 900: '#f7f7f7',
+        },
+        yale_blue: {
+          DEFAULT: '#284b63', 100: '#080f14', 200: '#101e27', 300: '#182d3b', 400: '#203c4e',
+          500: '#284b63', 600: '#3e7397', 700: '#6099be', 800: '#95bbd4', 900: '#cadde9',
+        },
+        /* ===== CARD COLORS ===== */
+        'card-catalog': '#2b4a4d',
+        'card-article': '#1e3344',
+        'card-plugin': '#3a3038',
+        'card-mobile': '#2c3b35',
+        'card-doodler': '#3d3a2e',
+        'card-droplette': '#2a2a3a',
+
+        /* ===== ALIAS ===== */
+        cream: '#d9d9d9', lime: '#a7ced1', forest: '#284b63', ink: '#353535', muted: '#5e5e5e',
+        lilac: '#7bb6b9', mint: '#a7ced1', peach: '#95bbd4', sky: '#cadde9',
+        hsblue: '#284b63', hsbar: '#3e7397', hslight: '#6099be', purple: '#3c6e71',
+        lavender: '#d3e7e8', line: '#e8e8e8', night: '#151515', night2: '#202020', teal: '#3c6e71',
+        darkbg: '#0c1617', darktext: '#d3e7e8', darkmuted: '#7bb6b9',
+        'theme-knob-light': '#284b63', 'theme-tick-active-light': '#284b63', 'theme-tick-faded-light': '#adadad',
+        'theme-icon-light': '#f7f7f7', 'theme-knob-dark': '#7bb6b9', 'theme-tick-active-dark': '#7bb6b9',
+        'theme-tick-faded-dark': 'rgba(123, 182, 185, 0.4)', 'theme-icon-dark': '#0c1617',
       },
       fontFamily: {
-        display: ['"Bricolage Grotesque"', 'sans-serif'],
+        /* Penerapan Font Acorn yang sama dengan halaman About */
+        display: ['"Acorn"', '"Bricolage Grotesque"', 'sans-serif'],
         serif: ['"Instrument Serif"', 'Georgia', 'serif'],
         sans: ['"Instrument Sans"', 'sans-serif'],
+        acorn: ['"Acorn"', '"Bricolage Grotesque"', '"Instrument Serif"', 'sans-serif'],
       },
       boxShadow: {
-        card: '0 30px 60px -20px rgba(80,60,40,.25)',
+        card: '0 30px 60px -20px rgba(40,75,99,.25)',
         darkcard: '0 30px 60px -20px rgba(0,0,0,.5)',
       },
     },
@@ -62,141 +87,131 @@ tailwind.config = {
     scroll-behavior: auto;
     scrollbar-width: none;
   }
-  html::-webkit-scrollbar {
-    width: 0;
-    height: 0;
-  }
+  html::-webkit-scrollbar { width: 0; height: 0; }
 
   body {
-    background-color: #F8F9FA;
-    color: #121212;
+    background-color: #f7f7f7;
+    color: #0b0b0b;
     transition: background-color 0.5s ease, color 0.5s ease;
     overflow-x: hidden;
   }
   .dark body {
-    background-color: #121212;
-    color: #F8F9FA;
+    background-color: #0b0b0b;
+    color: #f7f7f7;
   }
 
   /* ============================================================
-     HERO — "Untitled blend" flow gradient (FeralUI config)
+     HERO
      ============================================================ */
   .hero-blend {
     position: relative;
     overflow: hidden;
-    background-color: #DDDDD6;
+    background-color: #f7f7f7;
     transition: background-color 0.5s ease;
   }
   .dark .hero-blend {
-    background-color: #1A1F1B;
+    background-color: #0c1617;
   }
 
-  .hero-flow {
+  .hero-sky-base {
     position: absolute;
     inset: 0;
     pointer-events: none;
     z-index: 0;
-    background: linear-gradient(
-      135deg,
-      #DDDDD6 0%,
-      #DDDDD6 16.7%,
-      #9FAF9F 33.3%,
-      #9FAF9F 50%,
-      #5B6F57 66.6%,
-      #5B6F57 83.3%,
-      #DDDDD6 100%
-    );
-    background-size: 400% 400%;
-    background-position: 0% 50%;
-    animation: flowGradient 30s ease-in-out infinite;
-    will-change: background-position;
+    background: linear-gradient(180deg, #f7f7f7 0%, #e8f0ec 30%, #d3e7e8 60%, #a7ced1 100%);
+    transition: background 0.5s ease;
+  }
+  .dark .hero-sky-base {
+    background: linear-gradient(180deg, #0c1617 0%, #182c2d 25%, #284b63 50%, #3c6e71 75%, #30595b 100%);
+    filter: saturate(0.7) brightness(0.55);
   }
 
-  @keyframes flowGradient {
-    0%   { background-position: 0% 50%; }
-    25%  { background-position: 100% 50%; }
-    50%  { background-position: 100% 100%; }
-    75%  { background-position: 0% 100%; }
-    100% { background-position: 0% 50%; }
-  }
-
-  .dark .hero-flow {
-    background: linear-gradient(
-      135deg,
-      #2B332D 0%,
-      #2B332D 16.7%,
-      #3C443E 33.3%,
-      #3C443E 50%,
-      #1E2A20 66.6%,
-      #1E2A20 83.3%,
-      #2B332D 100%
-    );
-    background-size: 400% 400%;
-  }
-
-  .hero-mesh-overlay {
+  .hero-shape {
     position: absolute;
-    inset: 0;
     pointer-events: none;
     z-index: 1;
-    background:
-      radial-gradient(ellipse 60% 60% at 20% 30%, rgba(221, 221, 214, 0.4) 0%, transparent 70%),
-      radial-gradient(ellipse 50% 50% at 80% 70%, rgba(91, 111, 87, 0.35) 0%, transparent 70%);
-    mix-blend-mode: soft-light;
-    opacity: 0.9;
-  }
-  .dark .hero-mesh-overlay {
-    background:
-      radial-gradient(ellipse 60% 60% at 20% 30%, rgba(60, 68, 62, 0.5) 0%, transparent 70%),
-      radial-gradient(ellipse 50% 50% at 80% 70%, rgba(30, 42, 32, 0.5) 0%, transparent 70%);
+    border-radius: 30%;
+    filter: blur(70px);
+    -webkit-filter: blur(70px);
+    will-change: transform;
+    transition: opacity 0.5s ease, background-color 0.5s ease;
+    mix-blend-mode: normal;
   }
 
-  .hero-grain {
+  .hero-shape { opacity: 0.45; }
+  .dark .hero-shape {
+    opacity: 0.35;
+    mix-blend-mode: screen;
+  }
+
+  .shape-1 { width: 45vw; height: 45vw; background: #a7ced1; top: -10%; left: -10%; animation: shapeFloat1 14s ease-in-out infinite; }
+  .shape-2 { width: 38vw; height: 38vw; background: #d3e7e8; top: 20%; right: -12%; animation: shapeFloat2 17s ease-in-out infinite; }
+  .shape-3 { width: 35vw; height: 35vw; background: #e8f0ec; bottom: -15%; left: 25%; animation: shapeFloat3 15s ease-in-out infinite; }
+  .shape-4 { width: 30vw; height: 30vw; background: #95bbd4; top: 35%; left: 40%; animation: shapeFloat4 19s ease-in-out infinite; }
+  .shape-5 { width: 28vw; height: 28vw; background: #7bb6b9; top: 5%; left: 55%; animation: shapeFloat5 16s ease-in-out infinite; }
+
+  .dark .shape-1 { background: #3c6e71; }
+  .dark .shape-2 { background: #284b63; }
+  .dark .shape-3 { background: #6099be; }
+  .dark .shape-4 { background: #a7ced1; }
+  .dark .shape-5 { background: #7bb6b9; }
+
+  @keyframes shapeFloat1 { 0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); } 25% { transform: translate(18%, 12%) rotate(45deg) scale(1.1); } 50% { transform: translate(8%, 28%) rotate(90deg) scale(0.95); } 75% { transform: translate(-12%, 15%) rotate(135deg) scale(1.05); } }
+  @keyframes shapeFloat2 { 0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); } 25% { transform: translate(-15%, 10%) rotate(-30deg) scale(1.08); } 50% { transform: translate(-25%, -8%) rotate(-60deg) scale(0.92); } 75% { transform: translate(-8%, -18%) rotate(-90deg) scale(1.05); } }
+  @keyframes shapeFloat3 { 0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); } 25% { transform: translate(12%, -15%) rotate(60deg) scale(1.12); } 50% { transform: translate(25%, -5%) rotate(120deg) scale(0.9); } 75% { transform: translate(10%, 10%) rotate(180deg) scale(1.06); } }
+  @keyframes shapeFloat4 { 0%, 100% { transform: translate(0, 0) rotate(0deg) scale(0.95); } 25% { transform: translate(-10%, -20%) rotate(-40deg) scale(1.15); } 50% { transform: translate(15%, -12%) rotate(-80deg) scale(0.9); } 75% { transform: translate(-5%, 8%) rotate(-120deg) scale(1.1); } }
+  @keyframes shapeFloat5 { 0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); } 25% { transform: translate(20%, 18%) rotate(30deg) scale(1.05); } 50% { transform: translate(5%, 30%) rotate(60deg) scale(0.98); } 75% { transform: translate(-15%, 12%) rotate(90deg) scale(1.08); } }
+
+  .hero-soft-overlay {
     position: absolute;
     inset: 0;
     pointer-events: none;
     z-index: 2;
-    opacity: 0.05;
-    mix-blend-mode: overlay;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='256' height='256'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.7 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-    background-size: 256px 256px;
+    background: radial-gradient(ellipse 120% 80% at 50% 30%, rgba(247,247,247,0) 40%, rgba(247,247,247,0.5) 100%);
+    transition: background 0.5s ease;
   }
-  .dark .hero-grain {
-    opacity: 0.08;
-    mix-blend-mode: soft-light;
+  .dark .hero-soft-overlay {
+    background: radial-gradient(ellipse 120% 80% at 50% 30%, rgba(12,22,23,0) 40%, rgba(12,22,23,0.4) 100%);
   }
 
+  /* ============================================================
+     TEKS HERO
+     ============================================================ */
   .hero-blend-title {
-    font-family: "Instrument Serif", Georgia, serif;
-    font-weight: 700;
-    color: #0A3227;
+    font-family: 'Acorn', 'Bricolage Grotesque', "Instrument Serif", sans-serif;
+    font-weight: 600;
+    color: #0c1617;
     letter-spacing: -0.03em;
-    line-height: 1;
+    line-height: 1.05;
     transition: color 0.5s ease;
   }
   .dark .hero-blend-title {
-    color: #E8F2EC;
+    color: #ffffff;
+  }
+
+  .hero-blend-subtitle {
+    color: #284b63;
+    transition: color 0.5s ease;
+  }
+  .dark .hero-blend-subtitle {
+    color: #d3e7e8;
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .hero-flow {
-      animation: none !important;
-    }
+    .hero-shape { animation: none !important; }
   }
 
   .hero-bottom-fade {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 140px;
-    background: linear-gradient(to bottom, rgba(248, 249, 250, 0) 0%, #F8F9FA 100%);
+    bottom: 0; left: 0; right: 0;
+    height: 160px;
+    background: linear-gradient(to bottom, rgba(247,247,247,0) 0%, #f7f7f7 100%);
     pointer-events: none;
     z-index: 3;
     transition: background 0.5s ease;
   }
   .dark .hero-bottom-fade {
-    background: linear-gradient(to bottom, rgba(18, 18, 18, 0) 0%, #121212 100%);
+    background: linear-gradient(to bottom, rgba(11,11,11,0) 0%, #0b0b0b 100%);
   }
 
   .card {
@@ -204,231 +219,235 @@ tailwind.config = {
   }
   .card:hover {
     transform: translateY(-12px) scale(1.01);
-    box-shadow: 0 40px 70px -20px rgba(80,60,40,.35);
+    box-shadow: 0 40px 70px -20px rgba(40,75,99,.35);
   }
   .dark .card:hover {
     box-shadow: 0 40px 70px -20px rgba(0,0,0,.6);
   }
 
+  /* ============================================================
+     NAVBAR MOBILE FRIENDLY
+     ============================================================ */
   .floating-nav {
-    position: fixed;
-    top: 16px;
+    position: fixed; 
+    top: 16px; 
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%); 
     z-index: 50;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    padding: 6px 8px;
+    display: flex; 
+    align-items: center; 
+    gap: 2px; /* Mobile gap */
+    padding: 4px 6px; /* Mobile padding */
     border-radius: 9999px;
-    font-size: 15px;
-    font-weight: 500;
-    color: #121212;
+    font-size: 13px; /* Mobile font */
+    font-weight: 500; 
+    color: #0b0b0b;
     background: rgba(255,255,255,0.65);
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px); 
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid #E2E8F0;
+    border: 1px solid #e8e8e8;
     transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+    box-shadow: 0 4px 20px rgba(40,75,99,0.06);
     white-space: nowrap;
   }
+
+  @media (min-width: 640px) {
+    .floating-nav {
+      gap: 4px;
+      padding: 6px 8px;
+      font-size: 15px;
+    }
+  }
+
   .dark .floating-nav {
-    color: #F8F9FA;
-    background: rgba(18, 18, 18, 0.65);
-    border: 1px solid rgba(226, 232, 240, 0.15);
+    color: #f7f7f7; background: rgba(11, 11, 11, 0.65);
+    border: 1px solid rgba(232, 232, 232, 0.15);
   }
+
   .floating-nav .nav-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 7px 18px;
-    border-radius: 9999px;
-    transition: all 0.25s ease;
-    text-decoration: none;
-    color: inherit;
-    cursor: pointer;
+    display: flex; align-items: center; gap: 4px;
+    padding: 6px 12px; border-radius: 9999px; /* Mobile padding */
+    transition: all 0.25s ease; text-decoration: none;
+    color: inherit; cursor: pointer;
   }
+
+  @media (min-width: 640px) {
+    .floating-nav .nav-item {
+      gap: 8px;
+      padding: 7px 18px;
+    }
+  }
+
   .floating-nav .nav-item:hover {
-    background: rgba(255,255,255,0.9);
-    color: #10B981;
+    background: rgba(255,255,255,0.9); color: #3c6e71;
   }
   .dark .floating-nav .nav-item:hover {
-    background: rgba(255,255,255,0.1);
-    color: #10B981;
+    background: rgba(255,255,255,0.1); color: #7bb6b9;
   }
   .floating-nav .nav-item.active {
-    background: #FFFFFF;
-    color: #121212;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    background: #ffffff; color: #0b0b0b;
+    box-shadow: 0 2px 8px rgba(40,75,99,0.06);
   }
   .dark .floating-nav .nav-item.active {
-    background: rgba(255,255,255,0.15);
-    color: #F8F9FA;
+    background: rgba(255,255,255,0.15); color: #f7f7f7;
   }
+
   .floating-nav .nav-item .badge {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 22px;
-    height: 22px;
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 18px; height: 18px; /* Mobile badge */
     border-radius: 4px;
-    border: 1px solid #E2E8F0;
-    font-size: 13px;
+    border: 1px solid #e8e8e8; font-size: 11px; /* Mobile font */
     font-weight: 600;
-    color: #121212;
-    background: rgba(255,255,255,0.5);
-    margin-left: 2px;
-    transition: all 0.3s ease;
+    color: #0b0b0b; background: rgba(255,255,255,0.5);
+    margin-left: 1px; transition: all 0.3s ease;
   }
+
+  @media (min-width: 640px) {
+    .floating-nav .nav-item .badge {
+      width: 22px;
+      height: 22px;
+      font-size: 13px;
+      margin-left: 2px;
+    }
+  }
+
   .dark .floating-nav .nav-item .badge {
-    border-color: rgba(226, 232, 240, 0.2);
-    color: #F8F9FA;
+    border-color: rgba(232, 232, 232, 0.2); color: #f7f7f7;
     background: rgba(255,255,255,0.08);
   }
 
   .floating-nav.scrolled {
     background: rgba(255,255,255,0.95);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid #E2E8F0;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.06);
-    padding: 8px 10px;
-    top: 12px;
-  }
-  .dark .floating-nav.scrolled {
-    background: rgba(18, 18, 18, 0.95);
-    border: 1px solid rgba(226, 232, 240, 0.15);
-    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
-  }
-  .floating-nav.scrolled .nav-item {
-    padding: 9px 24px;
-  }
-  .floating-nav.scrolled .nav-item.active {
-    background: #F5F3F0;
-    color: #3A3F3C;
-  }
-  .dark .floating-nav.scrolled .nav-item.active {
-    background: rgba(255,255,255,0.1);
-    color: #CDEBB4;
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    border: 1px solid #e8e8e8;
+    box-shadow: 0 8px 32px rgba(40,75,99,0.08);
+    padding: 6px 8px; top: 12px;
   }
 
+  @media (min-width: 640px) {
+    .floating-nav.scrolled {
+      padding: 8px 10px;
+    }
+  }
+
+  .dark .floating-nav.scrolled {
+    background: rgba(11, 11, 11, 0.95);
+    border: 1px solid rgba(232, 232, 232, 0.15);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  }
+  .floating-nav.scrolled .nav-item { padding: 7px 14px; }
+  
+  @media (min-width: 640px) {
+    .floating-nav.scrolled .nav-item { padding: 9px 24px; }
+  }
+
+  .floating-nav.scrolled .nav-item.active { background: #f7f7f7; color: #353535; }
+  .dark .floating-nav.scrolled .nav-item.active { background: rgba(255,255,255,0.1); color: #a7ced1; }
+
   .tick {
-    width: 2px;
-    border-radius: 2px;
-    position: absolute;
-    bottom: 0;
+    width: 2px; border-radius: 2px; position: absolute; bottom: 0;
     transform: translateX(-50%);
     transition: height 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.3s ease, opacity 0.3s ease;
     will-change: height;
   }
   .theme-knob {
-    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-left: -25px;
+    box-shadow: 0 4px 20px rgba(40,75,99,0.15);
+    position: absolute; top: 0; left: 0; margin-left: -25px;
     will-change: transform;
     transition: transform 0.25s cubic-bezier(0.34, 1.3, 0.64, 1), background-color 0.3s ease;
   }
-  .dark .theme-knob {
-    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-  }
+  .dark .theme-knob { box-shadow: 0 4px 20px rgba(0,0,0,0.4); }
 
   body.dragging {
-    user-select: none;
-    -webkit-user-select: none;
-    cursor: grabbing !important;
+    user-select: none; -webkit-user-select: none; cursor: grabbing !important;
   }
-  body.dragging .theme-knob {
-    transition: background-color 0.3s ease !important;
-  }
+  body.dragging .theme-knob { transition: background-color 0.3s ease !important; }
 
   a, button, .nav-item, .card, .theme-knob, .tick {
     -webkit-tap-highlight-color: transparent;
   }
 
-  img {
-    content-visibility: auto;
-  }
+  img { content-visibility: auto; }
 </style>
 </head>
 <body class="font-sans antialiased">
 
   <!-- Floating Navbar -->
   <nav class="floating-nav" id="floatingNav">
-    <a href="#" class="nav-item active">
-      Work <span class="badge">/</span>
-    </a>
-    <a href="About.html" class="nav-item">About</a>
+    <a href="#" class="nav-item active">Work <span class="badge hidden sm:inline-flex">/</span></a>
+    <a href="about.html" class="nav-item">About</a>
     <a href="#" class="nav-item">Play</a>
     <a href="#" class="nav-item">Notes</a>
     <a href="#" class="nav-item">Contact</a>
   </nav>
 
   <!-- ============================================================
-       HERO — flow gradient beranimasi (FeralUI config)
+       HERO SECTION
        ============================================================ -->
-  <header class="hero-blend pt-32 pb-4">
-    <div class="hero-flow" aria-hidden="true"></div>
-    <div class="hero-mesh-overlay" aria-hidden="true"></div>
-    <div class="hero-grain" aria-hidden="true"></div>
+  <header class="hero-blend pt-24 sm:pt-32 pb-4">
+    <div class="hero-sky-base" aria-hidden="true"></div>
+
+    <div class="hero-shape shape-1" aria-hidden="true"></div>
+    <div class="hero-shape shape-2" aria-hidden="true"></div>
+    <div class="hero-shape shape-3" aria-hidden="true"></div>
+    <div class="hero-shape shape-4" aria-hidden="true"></div>
+    <div class="hero-shape shape-5" aria-hidden="true"></div>
+
+    <div class="hero-soft-overlay" aria-hidden="true"></div>
     <div class="hero-bottom-fade" aria-hidden="true"></div>
 
-    <div class="relative z-10 mx-auto max-w-[106rem] px-6 pt-12 pb-24 flex flex-col items-center justify-center text-center min-h-[78vh]">
-      <h1 class="hero-blend-title text-[64px] sm:text-[112px] lg:text-[188px] xl:text-[215px]">
-        Hi! Im Angger.<br/>
+    <div class="relative z-10 mx-auto max-w-[106rem] px-6 pt-8 sm:pt-12 pb-16 sm:pb-24 flex flex-col items-center justify-center text-center min-h-[65vh] sm:min-h-[78vh]">
+      <!-- Menggunakan ukuran font responsif yang sudah disesuaikan -->
+      <h1 class="font-acorn hero-blend-title text-[46px] sm:text-[80px] lg:text-[140px] xl:text-[160px]">
+        Hi! I'm Angger.<br/>
         A Designer.
       </h1>
-      <p class="mx-auto mt-14 max-w-xl text-xl font-semibold leading-relaxed text-[#0A3227] dark:text-[#CBD5E1] transition-colors duration-500">
+      <p class="hero-blend-subtitle mx-auto mt-8 sm:mt-14 max-w-xl text-base sm:text-xl font-semibold leading-relaxed transition-colors duration-500">
         I'm passionate about crafting experiences that are engaging, accessible, and user-centric.
       </p>
     </div>
   </header>
 
-  <main class="mx-auto max-w-[106rem] px-5 sm:px-10">
-    <!-- Section 1: Catalogs (kiri) besar 5fr | Articles (kanan) kecil 3fr -->
-    <section class="grid gap-16 md:grid-cols-[5fr_3fr] pt-6">
-      <!-- Catalogs — ukuran BESAR (sebelumnya kecil 3fr → sekarang 5fr) -->
-      <a href="#" class="hover:-translate-y-1 ease-in-out group hover:shadow-2xl hover:shadow-black/10 transition-all duration-300 relative block h-[320px] md:h-[560px] overflow-hidden rounded-3xl md:rounded-[52px] bg-lilac">
-        <div class="absolute right-16 top-10 text-right">
-          <p class="text-sm font-semibold tracking-[.25em] text-ink">CORPORATE DESIGN</p>
-          <p class="font-display text-5xl font-bold leading-none tracking-tight">Catalogs</p>
+  <main class="mx-auto max-w-[106rem] px-4 sm:px-10">
+    <!-- Section 1: Catalogs | Articles -->
+    <section class="grid gap-6 sm:gap-16 md:grid-cols-[5fr_3fr] pt-6">
+      <a href="#" class="hover:-translate-y-1 ease-in-out group hover:shadow-2xl hover:shadow-black/10 transition-all duration-300 relative block h-[320px] md:h-[560px] overflow-hidden rounded-3xl md:rounded-[52px] bg-card-catalog">
+        <div class="absolute right-6 sm:right-16 top-6 sm:top-10 text-right">
+          <p class="text-[10px] sm:text-sm font-semibold tracking-[.25em] text-white">CORPORATE DESIGN</p>
+          <p class="font-display text-3xl sm:text-5xl font-bold leading-none tracking-tight text-white">Catalogs</p>
         </div>
-        <div class="absolute left-16 top-40 transform group-hover:translate-y-6 transition duration-500 -right-96 bottom-0">
-          <img src="https://www.seanhalpin.xyz/hp/ai.png" alt="Corporate Design Catalogs" loading="lazy">
+        <div class="absolute left-6 sm:left-16 top-40 transform group-hover:translate-y-6 transition duration-500 -right-96 bottom-0">
+          <img src="assets/Asset Catalog_1.png" alt="Corporate Design Catalogs" loading="lazy">
         </div>
       </a>
 
-      <!-- Articles — ukuran KECIL (sebelumnya besar 5fr → sekarang 3fr) -->
-      <a href="#" class="hover:-translate-y-1 ease-in-out group hover:shadow-2xl hover:shadow-black/10 transition-all duration-300 relative block h-[320px] md:h-[560px] overflow-hidden rounded-3xl md:rounded-[52px] bg-mint">
-        <div class="absolute right-16 top-10 text-right">
-          <p class="text-sm font-semibold tracking-[.25em]">HELP SCOUT</p>
-          <p class="font-display text-5xl font-bold leading-none tracking-tight">Articles</p>
+      <a href="#" class="hover:-translate-y-1 ease-in-out group hover:shadow-2xl hover:shadow-black/10 transition-all duration-300 relative block h-[320px] md:h-[560px] overflow-hidden rounded-3xl md:rounded-[52px] bg-card-article">
+        <div class="absolute right-6 sm:right-16 top-6 sm:top-10 text-right">
+          <p class="text-[10px] sm:text-sm font-semibold tracking-[.25em] text-white">HELP SCOUT</p>
+          <p class="font-display text-3xl sm:text-5xl font-bold leading-none tracking-tight text-white">Articles</p>
         </div>
-        <div class="absolute left-32 top-40 transform group-hover:translate-y-6 transition duration-500 -right-96 bottom-0">
+        <div class="absolute left-6 sm:left-32 top-40 transform group-hover:translate-y-6 transition duration-500 -right-96 bottom-0">
           <img src="https://www.seanhalpin.xyz/hp/docs.png" alt="Help Scout Articles" loading="lazy">
         </div>
       </a>
     </section>
 
-    <!-- Section 2: Plugins (kiri) kecil 3fr | Mobile (kanan) besar 5fr -->
-    <section class="mt-20 grid gap-16 md:grid-cols-[3fr_5fr]">
-      <!-- Plugins — ukuran KECIL (sebelumnya besar 5fr → sekarang 3fr) -->
-      <a href="#" class="hover:-translate-y-1 ease-in-out group hover:shadow-2xl hover:shadow-black/10 transition-all duration-300 relative block h-[320px] md:h-[560px] overflow-hidden rounded-3xl md:rounded-[52px] bg-peach">
-        <div class="absolute right-16 top-10 text-right">
-          <p class="text-sm font-semibold tracking-[.25em]">FIGMA</p>
-          <p class="font-display text-5xl font-bold leading-none tracking-tight">Plugins</p>
+    <!-- Section 2: Plugins | Mobile -->
+    <section class="mt-6 sm:mt-20 grid gap-6 sm:gap-16 md:grid-cols-[3fr_5fr]">
+      <a href="#" class="hover:-translate-y-1 ease-in-out group hover:shadow-2xl hover:shadow-black/10 transition-all duration-300 relative block h-[320px] md:h-[560px] overflow-hidden rounded-3xl md:rounded-[52px] bg-card-plugin">
+        <div class="absolute right-6 sm:right-16 top-6 sm:top-10 text-right">
+          <p class="text-[10px] sm:text-sm font-semibold tracking-[.25em] text-white">FIGMA</p>
+          <p class="font-display text-3xl sm:text-5xl font-bold leading-none tracking-tight text-white">Plugins</p>
         </div>
-        <div class="absolute left-32 top-40 transform group-hover:translate-y-6 transition duration-500 -right-96 bottom-0">
+        <div class="absolute left-6 sm:left-32 top-40 transform group-hover:translate-y-6 transition duration-500 -right-96 bottom-0">
           <img src="https://www.seanhalpin.xyz/hp/figma.png" alt="Figma Plugins" loading="lazy">
         </div>
       </a>
 
-      <!-- Mobile — ukuran BESAR (sebelumnya kecil 3fr → sekarang 5fr) -->
-      <a href="#" class="hover:-translate-y-1 ease-in-out group hover:shadow-2xl hover:shadow-black/10 transition-all duration-300 relative block h-[320px] md:h-[560px] overflow-hidden rounded-3xl md:rounded-[52px] bg-sky">
-        <div class="absolute right-16 top-10 text-right">
-          <p class="text-sm font-semibold tracking-[.25em]">HELP SCOUT</p>
-          <p class="font-display text-5xl font-bold leading-none tracking-tight">Mobile</p>
+      <a href="#" class="hover:-translate-y-1 ease-in-out group hover:shadow-2xl hover:shadow-black/10 transition-all duration-300 relative block h-[320px] md:h-[560px] overflow-hidden rounded-3xl md:rounded-[52px] bg-card-mobile">
+        <div class="absolute right-6 sm:right-16 top-6 sm:top-10 text-right">
+          <p class="text-[10px] sm:text-sm font-semibold tracking-[.25em] text-white">HELP SCOUT</p>
+          <p class="font-display text-3xl sm:text-5xl font-bold leading-none tracking-tight text-white">Mobile</p>
         </div>
         <div class="absolute w-full top-40 transform group-hover:translate-y-6 transition duration-500 bottom-0">
           <img src="https://www.seanhalpin.xyz/hp/hs.png" class="mx-auto" alt="Help Scout Mobile" loading="lazy">
@@ -436,25 +455,25 @@ tailwind.config = {
       </a>
     </section>
 
-    <section class="pt-32 text-center">
-      <h2 class="font-display font-extrabold text-forest dark:text-lime tracking-[-0.06em] leading-none text-[56px] sm:text-[88px] lg:text-[156px] transition-colors duration-500">In Progress.</h2>
-      <p class="mx-auto mt-14 max-w-xl text-xl font-medium leading-relaxed text-muted dark:text-darkmuted transition-colors duration-500">Work in various states of design and development, from side projects, to in-flight product design and development.</p>
+    <section class="pt-20 sm:pt-32 text-center">
+      <h2 class="font-display font-extrabold text-forest dark:text-lime tracking-[-0.06em] leading-none text-[40px] sm:text-[88px] lg:text-[156px] transition-colors duration-500">In Progress.</h2>
+      <p class="mx-auto mt-6 sm:mt-14 max-w-xl text-base sm:text-xl font-medium leading-relaxed text-muted dark:text-darkmuted transition-colors duration-500">Work in various states of design and development, from side projects, to in-flight product design and development.</p>
 
-      <div class="mt-24 grid gap-16 text-left md:grid-cols-[5fr_3fr]">
-        <a href="#" class="hover:-translate-y-1 ease-in-out group hover:shadow-2xl hover:shadow-black/10 transition-all duration-300 relative block h-[320px] md:h-[560px] overflow-hidden rounded-3xl md:rounded-[52px] bg-white">
-          <div class="absolute right-16 top-10 text-right">
-            <p class="text-sm font-semibold tracking-[.25em]">MULTIPLAYER</p>
-            <p class="font-display text-5xl font-bold leading-none tracking-tight">Doodler</p>
+      <div class="mt-12 sm:mt-24 grid gap-6 sm:gap-16 text-left md:grid-cols-[5fr_3fr]">
+        <a href="#" class="hover:-translate-y-1 ease-in-out group hover:shadow-2xl hover:shadow-black/10 transition-all duration-300 relative block h-[320px] md:h-[560px] overflow-hidden rounded-3xl md:rounded-[52px] bg-card-doodler">
+          <div class="absolute right-6 sm:right-16 top-6 sm:top-10 text-right">
+            <p class="text-[10px] sm:text-sm font-semibold tracking-[.25em] text-white">MULTIPLAYER</p>
+            <p class="font-display text-3xl sm:text-5xl font-bold leading-none tracking-tight text-white">Doodler</p>
           </div>
           <div class="absolute w-full top-40 transform group-hover:translate-y-6 transition duration-500 bottom-0">
             <img src="https://www.seanhalpin.xyz/hp/wip/doodler.png" class="mx-auto translate-y-24" alt="Doodler" loading="lazy">
           </div>
         </a>
 
-        <a href="#" class="hover:-translate-y-1 ease-in-out group hover:shadow-2xl hover:shadow-black/10 transition-all duration-300 relative block h-[320px] md:h-[560px] overflow-hidden rounded-3xl md:rounded-[52px] bg-night">
-          <div class="absolute right-16 top-10 text-right text-white">
-            <p class="text-sm font-semibold tracking-[.25em]">FIGMA</p>
-            <p class="font-display text-5xl font-bold leading-none tracking-tight">Droplette</p>
+        <a href="#" class="hover:-translate-y-1 ease-in-out group hover:shadow-2xl hover:shadow-black/10 transition-all duration-300 relative block h-[320px] md:h-[560px] overflow-hidden rounded-3xl md:rounded-[52px] bg-card-droplette">
+          <div class="absolute right-6 sm:right-16 top-6 sm:top-10 text-right text-white">
+            <p class="text-[10px] sm:text-sm font-semibold tracking-[.25em] text-white">FIGMA</p>
+            <p class="font-display text-3xl sm:text-5xl font-bold leading-none tracking-tight text-white">Droplette</p>
           </div>
           <div class="absolute w-full top-40 transform group-hover:translate-y-6 transition duration-500 bottom-0">
             <img src="https://www.seanhalpin.xyz/hp/wip/hp-droplette.png" class="mx-auto" alt="Droplette" loading="lazy">
@@ -464,45 +483,26 @@ tailwind.config = {
     </section>
   </main>
 
-  <footer class="mx-auto max-w-[1100px] px-6 pt-36 pb-16 text-xl font-medium text-muted dark:text-darkmuted transition-colors duration-500">
+  <footer class="mx-auto max-w-[1100px] px-6 pt-20 sm:pt-36 pb-16 text-base sm:text-xl font-medium text-muted dark:text-darkmuted transition-colors duration-500">
     <div class="flex flex-col gap-10 sm:flex-row sm:justify-between mb-16">
-      <p>© 2026 Angger • <a href="#" class="hover:text-forest dark:hover:text-lime">Jakarta</a></p>
-      <div class="flex gap-14">
+      <p>© 2026 Angger • <a href="#" class="hover:text-forest dark:hover:text-lime">Colophon</a></p>
+      <div class="flex gap-10 sm:gap-14">
         <div><p class="font-display font-semibold text-forest dark:text-lime">Elsewhere</p>
-          <ul class="mt-10 space-y-3"><li><a href="#" class="hover:text-forest dark:hover:text-lime">Figma</a></li><li><a href="#" class="hover:text-forest dark:hover:text-lime">Github</a></li><li><a href="#" class="hover:text-forest dark:hover:text-lime">Posts</a></li><li><a href="#" class="hover:text-forest dark:hover:text-lime">CV</a></li><li><a href="#" class="hover:text-forest dark:hover:text-lime">LinkedIn</a></li></ul></div>
+          <ul class="mt-4 sm:mt-10 space-y-2 sm:space-y-3 text-sm sm:text-base"><li><a href="#" class="hover:text-forest dark:hover:text-lime">Figma</a></li><li><a href="#" class="hover:text-forest dark:hover:text-lime">Github</a></li><li><a href="#" class="hover:text-forest dark:hover:text-lime">Posts</a></li><li><a href="#" class="hover:text-forest dark:hover:text-lime">CV</a></li><li><a href="#" class="hover:text-forest dark:hover:text-lime">LinkedIn</a></li></ul></div>
         <div><p class="font-display font-semibold text-forest dark:text-lime">Contact</p>
-          <ul class="mt-10"><li><a href="#" class="hover:text-forest dark:hover:text-lime">Message</a></li></ul></div>
+          <ul class="mt-4 sm:mt-10 text-sm sm:text-base"><li><a href="#" class="hover:text-forest dark:hover:text-lime">Message</a></li></ul></div>
       </div>
     </div>
 
     <div class="relative w-full max-w-[1050px] mx-auto h-[100px]" id="ruler-container">
-      <div id="knob"
-           role="slider"
-           aria-label="Theme switcher"
-           aria-valuemin="0"
-           aria-valuemax="23"
-           aria-valuenow="0"
-           tabindex="0"
-           class="w-[50px] h-[50px] rounded-full bg-theme-knob-light dark:bg-theme-knob-dark cursor-grab active:cursor-grabbing flex items-center justify-center z-20 theme-knob"
-           style="transform: translate3d(0px, 0, 0);">
-
+      <div id="knob" role="slider" aria-label="Theme switcher" aria-valuemin="0" aria-valuemax="23" aria-valuenow="0" tabindex="0" class="w-[50px] h-[50px] rounded-full bg-theme-knob-light dark:bg-theme-knob-dark cursor-grab active:cursor-grabbing flex items-center justify-center z-20 theme-knob" style="transform: translate3d(0px, 0, 0);">
         <svg id="icon-sun" class="w-6 h-6 text-theme-icon-light dark:hidden pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="5"></circle>
-          <line x1="12" y1="1" x2="12" y2="3"></line>
-          <line x1="12" y1="21" x2="12" y2="23"></line>
-          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-          <line x1="1" y1="12" x2="3" y2="12"></line>
-          <line x1="21" y1="12" x2="23" y2="12"></line>
-          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          <circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
         </svg>
-
         <svg id="icon-moon" class="w-6 h-6 text-theme-icon-dark hidden dark:block pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
         </svg>
       </div>
-
       <div id="ticks-track" class="absolute inset-0 pointer-events-none" style="top: 60px;"></div>
     </div>
   </footer>
@@ -510,140 +510,78 @@ tailwind.config = {
   <script>
     // --- CUSTOM SMOOTH SCROLL ---
     (function() {
-      let targetY = window.scrollY;
-      let currentY = window.scrollY;
-      let isAnimating = false;
-      let rafId = null;
-      let isTouching = false;
-      const EASE = 0.11;
-      const MAX_WHEEL_DELTA = 300;
-
+      let targetY = window.scrollY; let currentY = window.scrollY;
+      let isAnimating = false; let rafId = null; let isTouching = false;
+      const EASE = 0.11; const MAX_WHEEL_DELTA = 300;
       const maxScroll = () => document.documentElement.scrollHeight - window.innerHeight;
-
-      function clamp(v) {
-        return Math.max(0, Math.min(v, maxScroll()));
-      }
-
+      function clamp(v) { return Math.max(0, Math.min(v, maxScroll())); }
       function animateScroll() {
         const diff = targetY - currentY;
         if (Math.abs(diff) < 0.5) {
-          currentY = targetY;
-          window.scrollTo(0, Math.round(currentY));
-          isAnimating = false;
-          rafId = null;
-          return;
+          currentY = targetY; window.scrollTo(0, Math.round(currentY));
+          isAnimating = false; rafId = null; return;
         }
-        currentY += diff * EASE;
-        window.scrollTo(0, Math.round(currentY));
+        currentY += diff * EASE; window.scrollTo(0, Math.round(currentY));
         rafId = requestAnimationFrame(animateScroll);
       }
-
       function startAnimation() {
-        if (!isAnimating) {
-          isAnimating = true;
-          rafId = requestAnimationFrame(animateScroll);
-        }
+        if (!isAnimating) { isAnimating = true; rafId = requestAnimationFrame(animateScroll); }
       }
-
       window.addEventListener('wheel', function(e) {
-        if (e.ctrlKey || e.metaKey) return;
-        if (isTouching) return;
-
+        if (e.ctrlKey || e.metaKey) return; if (isTouching) return;
         let el = e.target;
         while (el && el !== document.body && el !== document.documentElement) {
           const style = window.getComputedStyle(el);
-          const overflowY = style.overflowY;
-          if ((overflowY === 'auto' || overflowY === 'scroll') && el.scrollHeight > el.clientHeight) {
-            return;
-          }
+          if ((style.overflowY === 'auto' || style.overflowY === 'scroll') && el.scrollHeight > el.clientHeight) return;
           el = el.parentElement;
         }
-
         e.preventDefault();
-
         let delta = e.deltaY;
-        if (e.deltaMode === 1) delta *= 16;
-        else if (e.deltaMode === 2) delta *= window.innerHeight;
-
+        if (e.deltaMode === 1) delta *= 16; else if (e.deltaMode === 2) delta *= window.innerHeight;
         delta = Math.max(-MAX_WHEEL_DELTA, Math.min(MAX_WHEEL_DELTA, delta));
-        targetY = clamp(targetY + delta);
-        startAnimation();
+        targetY = clamp(targetY + delta); startAnimation();
       }, { passive: false });
-
       window.addEventListener('touchstart', function() {
-        isTouching = true;
-        if (rafId) cancelAnimationFrame(rafId);
-        isAnimating = false;
-        rafId = null;
-        targetY = window.scrollY;
-        currentY = window.scrollY;
+        isTouching = true; if (rafId) cancelAnimationFrame(rafId);
+        isAnimating = false; rafId = null; targetY = window.scrollY; currentY = window.scrollY;
       }, { passive: true });
-
       window.addEventListener('touchend', function() {
-        isTouching = false;
-        targetY = window.scrollY;
-        currentY = window.scrollY;
+        isTouching = false; targetY = window.scrollY; currentY = window.scrollY;
       }, { passive: true });
-
       window.addEventListener('keydown', function(e) {
         const scrollKeys = ['PageDown', 'PageUp', ' ', 'ArrowDown', 'ArrowUp', 'Home', 'End'];
         if (!scrollKeys.includes(e.key)) return;
         const tag = document.activeElement && document.activeElement.tagName;
         if (tag === 'INPUT' || tag === 'TEXTAREA' || document.activeElement.isContentEditable) return;
         if (document.activeElement === document.getElementById('knob')) return;
-
         e.preventDefault();
-
-        let delta = 0;
-        const vh = window.innerHeight;
-        if (e.key === 'PageDown') delta = vh * 0.9;
-        else if (e.key === 'PageUp') delta = -vh * 0.9;
+        let delta = 0; const vh = window.innerHeight;
+        if (e.key === 'PageDown') delta = vh * 0.9; else if (e.key === 'PageUp') delta = -vh * 0.9;
         else if (e.key === ' ') delta = e.shiftKey ? -vh * 0.9 : vh * 0.9;
-        else if (e.key === 'ArrowDown') delta = 100;
-        else if (e.key === 'ArrowUp') delta = -100;
-        else if (e.key === 'Home') delta = -maxScroll();
-        else if (e.key === 'End') delta = maxScroll();
-
-        targetY = clamp(targetY + delta);
-        startAnimation();
+        else if (e.key === 'ArrowDown') delta = 100; else if (e.key === 'ArrowUp') delta = -100;
+        else if (e.key === 'Home') delta = -maxScroll(); else if (e.key === 'End') delta = maxScroll();
+        targetY = clamp(targetY + delta); startAnimation();
       }, { passive: false });
-
       window.addEventListener('scroll', function() {
-        if (!isAnimating && !isTouching) {
-          targetY = window.scrollY;
-          currentY = window.scrollY;
-        }
+        if (!isAnimating && !isTouching) { targetY = window.scrollY; currentY = window.scrollY; }
       }, { passive: true });
-
       document.addEventListener('click', function(e) {
         const link = e.target.closest('a[href^="#"]');
-        if (!link) return;
-        const href = link.getAttribute('href');
-        if (!href || href === '#') return;
-        const targetEl = document.querySelector(href);
-        if (!targetEl) return;
-
-        e.preventDefault();
+        if (!link) return; const href = link.getAttribute('href');
+        if (!href || href === '#') return; const targetEl = document.querySelector(href);
+        if (!targetEl) return; e.preventDefault();
         const rect = targetEl.getBoundingClientRect();
-        const absoluteY = window.scrollY + rect.top;
-        targetY = clamp(absoluteY);
-        startAnimation();
+        targetY = clamp(window.scrollY + rect.top); startAnimation();
       });
-
-      window.addEventListener('resize', function() {
-        targetY = clamp(targetY);
-      });
+      window.addEventListener('resize', function() { targetY = clamp(targetY); });
     })();
 
     // --- Navbar Scroll Behavior ---
     (function() {
       const nav = document.getElementById('floatingNav');
       function handleScroll() {
-        if (window.scrollY > 20) {
-          nav.classList.add('scrolled');
-        } else {
-          nav.classList.remove('scrolled');
-        }
+        if (window.scrollY > 20) nav.classList.add('scrolled');
+        else nav.classList.remove('scrolled');
       }
       window.addEventListener('scroll', handleScroll, { passive: true });
       handleScroll();
@@ -655,36 +593,17 @@ tailwind.config = {
       const track = document.getElementById('ticks-track');
       const knob = document.getElementById('knob');
       const html = document.documentElement;
+      const numTicks = 24; const ticks = [];
+      let step = 0; let minX = 0; let maxX = 0; let padding = 40;
+      let currentX = 0; let isDragging = false; let rafId = null;
+      let autoUpdateInterval = null; let isManualMode = false; let lastThemeState = null;
 
-      const numTicks = 24;
-      const ticks = [];
-      let step = 0;
-      let minX = 0;
-      let maxX = 0;
-      let padding = 40;
-
-      let currentX = 0;
-      let isDragging = false;
-      let rafId = null;
-      let autoUpdateInterval = null;
-      let isManualMode = false;
-      let lastThemeState = null;
-
-      function isNightIndex(index) {
-        return index < 6 || index >= 18;
-      }
-
+      function isNightIndex(index) { return index < 6 || index >= 18; }
       function updateLayout() {
         const containerWidth = container.offsetWidth;
         step = (containerWidth - (padding * 2)) / (numTicks - 1);
-        minX = padding;
-        maxX = containerWidth - padding;
-
-        ticks.forEach((tick, i) => {
-          const x = minX + (i * step);
-          tick.style.left = `${x}px`;
-        });
-
+        minX = padding; maxX = containerWidth - padding;
+        ticks.forEach((tick, i) => { tick.style.left = `${minX + (i * step)}px`; });
         applyKnobPosition(currentX, false);
       }
 
@@ -693,176 +612,92 @@ tailwind.config = {
         tick.className = 'tick';
         tick.classList.add('bg-theme-tick-active-light', 'dark:bg-theme-tick-active-dark');
         tick.style.opacity = isNightIndex(i) ? '0.5' : '1';
-        tick.style.height = '20px';
-        tick.dataset.baseHeight = 20;
-        track.appendChild(tick);
-        ticks.push(tick);
+        tick.style.height = '20px'; tick.dataset.baseHeight = 20;
+        track.appendChild(tick); ticks.push(tick);
       }
 
       function applyKnobPosition(x, animate = true) {
         currentX = Math.max(minX, Math.min(x, maxX));
-
-        if (!animate) {
-          knob.style.transition = 'none';
-        } else {
-          knob.style.transition = 'transform 0.25s cubic-bezier(0.34, 1.3, 0.64, 1)';
-        }
-
+        knob.style.transition = animate ? 'transform 0.25s cubic-bezier(0.34, 1.3, 0.64, 1)' : 'none';
         knob.style.transform = `translate3d(${currentX}px, 0, 0)`;
-
         const nearestIndex = Math.max(0, Math.min(Math.round((currentX - minX) / step), numTicks - 1));
-
-        ticks.forEach((tick, i) => {
-          tick.style.height = (i === nearestIndex) ? '40px' : `${tick.dataset.baseHeight}px`;
-        });
-
+        ticks.forEach((tick, i) => { tick.style.height = (i === nearestIndex) ? '40px' : `${tick.dataset.baseHeight}px`; });
         const isNight = isNightIndex(nearestIndex);
-        if (isNight !== lastThemeState) {
-          setTheme(isNight);
-          lastThemeState = isNight;
-        }
-
+        if (isNight !== lastThemeState) { setTheme(isNight); lastThemeState = isNight; }
         knob.setAttribute('aria-valuenow', nearestIndex);
       }
 
-      function setTheme(isDark) {
-        if (isDark) html.classList.add('dark');
-        else html.classList.remove('dark');
-      }
-
+      function setTheme(isDark) { if (isDark) html.classList.add('dark'); else html.classList.remove('dark'); }
       function getWIBHour() {
         try {
           const formatter = new Intl.DateTimeFormat('en-GB', { hour: 'numeric', hour12: false, timeZone: 'Asia/Jakarta' });
           const hour = parseInt(formatter.format(new Date()), 10);
           return isNaN(hour) ? 12 : (hour === 24 ? 0 : hour);
-        } catch (e) {
-          return new Date().getHours();
-        }
+        } catch (e) { return new Date().getHours(); }
       }
-
       function syncToWIB() {
         if (isManualMode) return;
-        const hour = getWIBHour();
-        const targetIndex = Math.max(0, Math.min(hour, numTicks - 1));
-        const targetX = minX + (targetIndex * step);
+        const targetX = minX + (Math.max(0, Math.min(getWIBHour(), numTicks - 1)) * step);
         applyKnobPosition(targetX, true);
       }
-
-      function startAutoUpdate() {
-        if (autoUpdateInterval) clearInterval(autoUpdateInterval);
-        autoUpdateInterval = setInterval(syncToWIB, 60000);
-      }
-
-      function stopAutoUpdate() {
-        if (autoUpdateInterval) {
-          clearInterval(autoUpdateInterval);
-          autoUpdateInterval = null;
-        }
-        isManualMode = true;
-      }
+      function startAutoUpdate() { if (autoUpdateInterval) clearInterval(autoUpdateInterval); autoUpdateInterval = setInterval(syncToWIB, 60000); }
+      function stopAutoUpdate() { if (autoUpdateInterval) { clearInterval(autoUpdateInterval); autoUpdateInterval = null; } isManualMode = true; }
 
       setTimeout(() => {
         updateLayout();
-        const hour = getWIBHour();
-        const initialIndex = Math.max(0, Math.min(hour, numTicks - 1));
-        const initialX = minX + (initialIndex * step);
-        applyKnobPosition(initialX, false);
+        applyKnobPosition(minX + (Math.max(0, Math.min(getWIBHour(), numTicks - 1)) * step), false);
         startAutoUpdate();
-        setTimeout(() => {
-          knob.style.transition = 'transform 0.25s cubic-bezier(0.34, 1.3, 0.64, 1)';
-        }, 50);
+        setTimeout(() => { knob.style.transition = 'transform 0.25s cubic-bezier(0.34, 1.3, 0.64, 1)'; }, 50);
       }, 10);
 
       window.addEventListener('resize', () => {
         const currentIndex = Math.round((currentX - minX) / step) || 0;
-        updateLayout();
-        const targetX = minX + (currentIndex * step);
-        applyKnobPosition(targetX, false);
+        updateLayout(); applyKnobPosition(minX + (currentIndex * step), false);
       });
 
       function onPointerDown(e) {
         if (e.button !== undefined && e.button !== 0) return;
-        stopAutoUpdate();
-        isDragging = true;
-        document.body.classList.add('dragging');
+        stopAutoUpdate(); isDragging = true; document.body.classList.add('dragging');
         knob.setPointerCapture(e.pointerId);
-        const trackRect = track.getBoundingClientRect();
-        let targetX = e.clientX - trackRect.left;
-        targetX = Math.max(minX, Math.min(targetX, maxX));
-        applyKnobPosition(targetX, false);
+        applyKnobPosition(Math.max(minX, Math.min(e.clientX - track.getBoundingClientRect().left, maxX)), false);
       }
-
       function onPointerMove(e) {
-        if (!isDragging) return;
-        if (rafId) cancelAnimationFrame(rafId);
+        if (!isDragging) return; if (rafId) cancelAnimationFrame(rafId);
         rafId = requestAnimationFrame(() => {
-          const trackRect = track.getBoundingClientRect();
-          let targetX = e.clientX - trackRect.left;
-          targetX = Math.max(minX, Math.min(targetX, maxX));
-          applyKnobPosition(targetX, false);
+          applyKnobPosition(Math.max(minX, Math.min(e.clientX - track.getBoundingClientRect().left, maxX)), false);
         });
       }
-
       function onPointerUp(e) {
-        if (!isDragging) return;
-        isDragging = false;
-        if (rafId) {
-          cancelAnimationFrame(rafId);
-          rafId = null;
-        }
+        if (!isDragging) return; isDragging = false;
+        if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
         document.body.classList.remove('dragging');
-        if (knob.hasPointerCapture(e.pointerId)) {
-          knob.releasePointerCapture(e.pointerId);
-        }
+        if (knob.hasPointerCapture(e.pointerId)) knob.releasePointerCapture(e.pointerId);
         const nearestIndex = Math.max(0, Math.min(Math.round((currentX - minX) / step), numTicks - 1));
         const targetX = minX + (nearestIndex * step);
-        void knob.offsetWidth;
-        applyKnobPosition(targetX, true);
-        currentX = targetX;
+        void knob.offsetWidth; applyKnobPosition(targetX, true); currentX = targetX;
       }
-
       function onKeyDown(e) {
-        let nearestIndex = Math.round((currentX - minX) / step);
-        let moved = false;
-
+        let nearestIndex = Math.round((currentX - minX) / step); let moved = false;
         if (e.key === 'ArrowLeft') { nearestIndex = Math.max(0, nearestIndex - 1); moved = true; }
         else if (e.key === 'ArrowRight') { nearestIndex = Math.min(numTicks - 1, nearestIndex + 1); moved = true; }
         else if (e.key === 'Home') { nearestIndex = 0; moved = true; }
         else if (e.key === 'End') { nearestIndex = numTicks - 1; moved = true; }
-
-        if (moved) {
-          e.preventDefault();
-          stopAutoUpdate();
-          const targetX = minX + (nearestIndex * step);
-          applyKnobPosition(targetX, true);
-        }
+        if (moved) { e.preventDefault(); stopAutoUpdate(); applyKnobPosition(minX + (nearestIndex * step), true); }
       }
-
       function onMouseMoveTrack(e) {
-        if (isDragging) return;
-        const rect = track.getBoundingClientRect();
-        const mouseX = e.clientX - rect.left;
+        if (isDragging) return; const mouseX = e.clientX - track.getBoundingClientRect().left;
         const knobIndex = Math.round((currentX - minX) / step);
-        const sigma = step * 1.5;
-        const maxAdd = 24;
-
+        const sigma = step * 1.5; const maxAdd = 24;
         ticks.forEach((tick, i) => {
-          if (i === knobIndex) return;
-          const tickX = minX + (i * step);
+          if (i === knobIndex) return; const tickX = minX + (i * step);
           const distance = Math.abs(mouseX - tickX);
           const effect = Math.exp(-(distance * distance) / (2 * sigma * sigma));
-          const baseHeight = parseInt(tick.dataset.baseHeight);
-          tick.style.height = `${baseHeight + (maxAdd * effect)}px`;
+          tick.style.height = `${parseInt(tick.dataset.baseHeight) + (maxAdd * effect)}px`;
         });
       }
-
       function onMouseLeaveTrack() {
-        if (isDragging) return;
-        const knobIndex = Math.round((currentX - minX) / step);
-        ticks.forEach((tick, i) => {
-          if (i === knobIndex) return;
-          tick.style.height = `${tick.dataset.baseHeight}px`;
-        });
+        if (isDragging) return; const knobIndex = Math.round((currentX - minX) / step);
+        ticks.forEach((tick, i) => { if (i !== knobIndex) tick.style.height = `${tick.dataset.baseHeight}px`; });
       }
 
       knob.addEventListener('pointerdown', onPointerDown);
@@ -874,6 +709,5 @@ tailwind.config = {
       container.addEventListener('mouseleave', onMouseLeaveTrack);
     })();
   </script>
-
 </body>
 </html>
